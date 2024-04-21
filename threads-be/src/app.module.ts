@@ -3,13 +3,13 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { CommentsModule } from './comments/comments.module';
-import { MongooseModule } from '@nestjs/mongoose'
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
   imports: [
-    UsersModule, 
+    UsersModule,
     CommentsModule,
-    MongooseModule.forRoot('mongodb+srv://kevindang01:FwMscC0bCrjnvsNa@cluster0.km2seuf.mongodb.net/threads?retryWrites=true&w=majority&appName=Cluster0')
+    MongooseModule.forRoot(process.env.MONGO_URL),
   ],
   controllers: [AppController],
   providers: [AppService],
